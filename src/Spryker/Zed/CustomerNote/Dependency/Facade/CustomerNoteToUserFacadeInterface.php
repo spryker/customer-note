@@ -11,8 +11,5 @@ use Generated\Shared\Transfer\UserTransfer;
 
 interface CustomerNoteToUserFacadeInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\UserTransfer
-     */
     public function getCurrentUser(): UserTransfer;
 }

@@ -16,9 +16,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
  */
 class CustomerNotePersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\CustomerNote\Persistence\SpyCustomerNoteQuery
-     */
     public function createCustomerNoteQuery(): SpyCustomerNoteQuery
     {
         return SpyCustomerNoteQuery::create();

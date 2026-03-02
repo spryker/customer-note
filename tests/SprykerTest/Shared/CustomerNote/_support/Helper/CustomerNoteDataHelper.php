@@ -26,20 +26,11 @@ class CustomerNoteDataHelper extends Module
      */
     public const TEST_NOTE_MESSAGE = 'test_message';
 
-    /**
-     * @return \Spryker\Zed\CustomerNote\Business\CustomerNoteFacadeInterface
-     */
     protected function getCustomerNoteFacade(): CustomerNoteFacadeInterface
     {
         return $this->getLocator()->customerNote()->facade();
     }
 
-    /**
-     * @param int $fkUser
-     * @param int $fkCustomer
-     *
-     * @return \Generated\Shared\Transfer\SpyCustomerNoteEntityTransfer
-     */
     public function getCustomerNoteTransfer(int $fkUser, int $fkCustomer): SpyCustomerNoteEntityTransfer
     {
         $noteTransfer = new SpyCustomerNoteEntityTransfer();
@@ -51,12 +42,6 @@ class CustomerNoteDataHelper extends Module
         return $noteTransfer;
     }
 
-    /**
-     * @param int $fkUser
-     * @param int $fkCustomer
-     *
-     * @return \Generated\Shared\Transfer\SpyCustomerNoteEntityTransfer
-     */
     public function haveCustomerNote(int $fkUser, int $fkCustomer): SpyCustomerNoteEntityTransfer
     {
         return $this->getCustomerNoteFacade()->addNote(

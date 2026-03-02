@@ -16,11 +16,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class CustomerNoteEntityManager extends AbstractEntityManager implements CustomerNoteEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SpyCustomerNoteEntityTransfer $customerNoteEntityTransfer
-     *
-     * @return \Generated\Shared\Transfer\SpyCustomerNoteEntityTransfer
-     */
     public function saveNote(SpyCustomerNoteEntityTransfer $customerNoteEntityTransfer): SpyCustomerNoteEntityTransfer
     {
         return $this->save($customerNoteEntityTransfer);

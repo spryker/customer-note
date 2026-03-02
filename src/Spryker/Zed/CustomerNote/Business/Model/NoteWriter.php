@@ -29,21 +29,12 @@ class NoteWriter implements NoteWriterInterface
      */
     protected $customerNoteEntityManager;
 
-    /**
-     * @param \Spryker\Zed\CustomerNote\Dependency\Facade\CustomerNoteToUserFacadeInterface $userFacade
-     * @param \Spryker\Zed\CustomerNote\Persistence\CustomerNoteEntityManagerInterface $customerNoteEntityManager
-     */
     public function __construct(CustomerNoteToUserFacadeInterface $userFacade, CustomerNoteEntityManagerInterface $customerNoteEntityManager)
     {
         $this->userFacade = $userFacade;
         $this->customerNoteEntityManager = $customerNoteEntityManager;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyCustomerNoteEntityTransfer $customerNoteEntityTransfer
-     *
-     * @return \Generated\Shared\Transfer\SpyCustomerNoteEntityTransfer
-     */
     public function createCustomerNote(SpyCustomerNoteEntityTransfer $customerNoteEntityTransfer): SpyCustomerNoteEntityTransfer
     {
         $noteTransfer = $this->hydrateSpyCustomerNoteEntityTransfer($customerNoteEntityTransfer);
@@ -51,11 +42,6 @@ class NoteWriter implements NoteWriterInterface
         return $this->customerNoteEntityManager->saveNote($noteTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyCustomerNoteEntityTransfer $customerNoteEntityTransfer
-     *
-     * @return \Generated\Shared\Transfer\SpyCustomerNoteEntityTransfer
-     */
     protected function hydrateSpyCustomerNoteEntityTransfer(SpyCustomerNoteEntityTransfer $customerNoteEntityTransfer): SpyCustomerNoteEntityTransfer
     {
         $currentUserTransfer = $this->userFacade->getCurrentUser();
@@ -65,11 +51,6 @@ class NoteWriter implements NoteWriterInterface
         return $customerNoteEntityTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\UserTransfer $userTransfer
-     *
-     * @return string
-     */
     protected function formatCommenterUsername(UserTransfer $userTransfer): string
     {
         return sprintf(

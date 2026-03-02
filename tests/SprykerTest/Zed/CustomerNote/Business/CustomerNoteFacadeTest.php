@@ -59,9 +59,6 @@ class CustomerNoteFacadeTest extends Unit
      */
     protected $businessLayerDependencies;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -70,9 +67,6 @@ class CustomerNoteFacadeTest extends Unit
         $this->userTransfer = $this->getUser();
     }
 
-    /**
-     * @return \Spryker\Zed\CustomerNote\Business\CustomerNoteBusinessFactory
-     */
     protected function getBusinessFactory(): CustomerNoteBusinessFactory
     {
         $customerNoteBusinessFactory = new CustomerNoteBusinessFactory();
@@ -81,9 +75,6 @@ class CustomerNoteFacadeTest extends Unit
         return $customerNoteBusinessFactory;
     }
 
-    /**
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function getContainer(): Container
     {
         $dependencyProvider = new CustomerNoteDependencyProvider();
@@ -99,9 +90,6 @@ class CustomerNoteFacadeTest extends Unit
         return $this->businessLayerDependencies;
     }
 
-    /**
-     * @return void
-     */
     public function testAddNoteReturnsNotEmptyValueOnSuccess(): void
     {
         $note = $this->customerNoteFacade->addNote($this->tester->getCustomerNoteTransfer(
@@ -112,9 +100,6 @@ class CustomerNoteFacadeTest extends Unit
         $this->assertTrue((bool)$note->getIdCustomerNote());
     }
 
-    /**
-     * @return void
-     */
     public function testAddNoteFromCurrentUserReturnsNotEmptyValueOnSuccess(): void
     {
         $note = $this->customerNoteFacade->addNote($this->tester->getCustomerNoteTransfer(
@@ -125,9 +110,6 @@ class CustomerNoteFacadeTest extends Unit
         $this->assertTrue((bool)$note->getIdCustomerNote());
     }
 
-    /**
-     * @return void
-     */
     public function testGetNotesReturnsProperAmountOfNotes(): void
     {
         $this->createCustomerNotesWithFkUserAndFkCustomer(
@@ -140,29 +122,16 @@ class CustomerNoteFacadeTest extends Unit
         $this->assertSame(static::NOTES_COUNT, $customerNoteCollectionTransfer->getNotes()->count());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CustomerTransfer
-     */
     protected function getCustomer(): CustomerTransfer
     {
         return $this->tester->haveCustomer();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\UserTransfer
-     */
     protected function getUser(): UserTransfer
     {
         return $this->tester->haveUser();
     }
 
-    /**
-     * @param int $fkUser
-     * @param int $fkCustomer
-     * @param int $number
-     *
-     * @return void
-     */
     protected function createCustomerNotesWithFkUserAndFkCustomer(int $fkUser, int $fkCustomer, int $number): void
     {
         for ($i = 0; $i < $number; $i++) {

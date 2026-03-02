@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\SpyCustomerNoteEntityTransfer;
 
 interface CustomerNoteEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SpyCustomerNoteEntityTransfer $customerNoteEntityTransfer
-     *
-     * @return \Generated\Shared\Transfer\SpyCustomerNoteEntityTransfer
-     */
     public function saveNote(SpyCustomerNoteEntityTransfer $customerNoteEntityTransfer): SpyCustomerNoteEntityTransfer;
 }

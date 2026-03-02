@@ -19,9 +19,6 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  */
 class CustomerNoteBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\CustomerNote\Business\Model\NoteWriterInterface
-     */
     public function createNoteWriter(): NoteWriterInterface
     {
         return new NoteWriter(
@@ -30,9 +27,6 @@ class CustomerNoteBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\CustomerNote\Dependency\Facade\CustomerNoteToUserFacadeInterface
-     */
     protected function getUserFacade(): CustomerNoteToUserFacadeInterface
     {
         return $this->getProvidedDependency(CustomerNoteDependencyProvider::FACADE_USER);

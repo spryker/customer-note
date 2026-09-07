@@ -11,6 +11,7 @@ use Orm\Zed\CustomerNote\Persistence\SpyCustomerNoteQuery;
 use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
 
 /**
+ * @method \Spryker\Zed\CustomerNote\CustomerNoteConfig getConfig()
  * @method \Spryker\Zed\CustomerNote\Persistence\CustomerNoteEntityManagerInterface getEntityManager()
  * @method \Spryker\Zed\CustomerNote\Persistence\CustomerNoteRepositoryInterface getRepository()
  */

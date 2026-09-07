@@ -3,6 +3,24 @@
 
     <transfer name="CustomerNoteCollection">
         <property name="notes" type="SpyCustomerNoteEntity[]" singular="notes"/>
+        <property name="pagination" type="Pagination"/>
+    </transfer>
+
+    <transfer name="CustomerNoteCriteria" strict="true">
+        <property name="customerNoteConditions" type="CustomerNoteConditions"/>
+        <property name="sortCollection" type="Sort[]" singular="sort"/>
+        <property name="pagination" type="Pagination"/>
+    </transfer>
+
+    <transfer name="CustomerNoteConditions" strict="true">
+        <property name="customerIds" type="int[]" singular="idCustomer"/>
+        <property name="uuids" type="string[]" singular="uuid"/>
+    </transfer>
+
+    <transfer name="Pagination">
+    </transfer>
+
+    <transfer name="Sort">
     </transfer>
 
     <transfer name="User">
